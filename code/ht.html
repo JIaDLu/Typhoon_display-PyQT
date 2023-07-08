@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>台风预测后台系统</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=BqGNEp1aciGk5PW1fNC6ZuN7b4bRORnB">
+    </script>
+</head>
+
+<body>
+
+
+<div th:insert="~{commons/commons::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--侧边栏-->
+        <!--传递参数给组件-->
+        <div th:replace="~{commons/commons::sidebar(active='main.html')}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="chartjs-size-monitor"
+                 style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                <div class="chartjs-size-monitor-expand"
+                     style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink"
+                     style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                </div>
+            </div>
+
+            <div class="my-4 chartjs-render-monitor" id="myChart" width="1076" height="454"
+                 style="display: block; width: 1531px; height: 739px;"></div>
+
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+
+
+<script type="text/javascript">
+    var map = new BMapGL.Map("myChart");          // 创建地图实例
+    var centerpoint = new BMapGL.Point(116.404, 39.915);  // 创建点坐标
+    map.centerAndZoom(centerpoint, 15);                 // 初始化地图，设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    map.setHeading(64.5);   //设置地图旋转角度
+    map.setTilt(73);       //设置地图的倾斜角度
+
+    var scaleCtrl = new BMapGL.ScaleControl(anchor=BMAP_ANCHOR_BOTTOM_RIGHT);  // 添加比例尺控件
+    map.addControl(scaleCtrl);
+
+    var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
+    map.addControl(zoomCtrl);
+
+
+
+    var tracklist = []
+    function re_first_last_name(eachpoint){
+        var tem = []
+        var poit = eachpoint
+        var index=poit.indexOf('.')
+        var lat = poit.substring(0,index+2);
+        tem.push(parseFloat(lat))
+        var lon = poit.slice(index+2)
+        tem.push(parseFloat(lon))
+        tracklist.push(tem)
+    }
+
+    function pri_track_in_map(){
+        var tem = []
+        for (let i = 0; i < tracklist.length; i++) {
+            console.log(parseInt(tracklist[i][0]))
+            var abc = new BMapGL.Point(parseInt(tracklist[i][0]), parseInt(tracklist[i][1]),{color: "green"})
+
+            tem.push(abc)
+        }
+        var polyline = new BMapGL.Polyline(tem, {strokeColor: "red", strokeWeight: 2, strokeOpacity: 0.5});
+        map.addOverlay(polyline);
+    }
+
+
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1561</width>
+    <height>1106</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>80</y>
+      <width>421</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton{
+	font: 87 22pt &quot;Arial Black&quot; Bold;
+	font-size:46px;
+	color:rgb(255, 255, 255);
+	background-color:rgb(122, 154, 109)
+}
+</string>
+    </property>
+    <property name="text">
+     <string>查询</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-10</y>
+      <width>1581</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#lineEdit{
+	font: 87 22pt &quot;Arial Black&quot; Bold;
+	font-size:36px;
+	color:rgb(170, 85, 127);
+	background-color:rgb(244, 255, 238)
+}
+</string>
+    </property>
+    <property name="text">
+     <string>                                 欢迎选择IBTrACS数据源</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>80</y>
+      <width>511</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black 12</family>
+      <pointsize>-1</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#comboBox
+{
+	font: 87 22pt &quot;Arial Black&quot; Bold;
+	font-size:36px;
+	color:rgb(255, 255, 255);
+	background-color:rgb(181, 201, 255)
+}
+
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>请选择年份</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1979</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1980</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1981</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1982</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1983</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_3">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>180</y>
+      <width>511</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black 12</family>
+      <pointsize>-1</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#comboBox_3{
+	font: 87 22pt &quot;Arial Black&quot; Bold;
+	font-size:36px;
+	color:rgb(255, 255, 255);
+	background-color:rgb(181, 201, 255)
+}
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>请选择台风</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCommandLinkButton" name="commandLinkButton_2">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>10</y>
+      <width>91</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>返回</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>641</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label
+{
+	font: 87 22pt &quot;Arial Black&quot; Bold;
+	font-size:36px;
+	color:rgb(255, 255, 255);
+	background-color:rgb(255, 116, 130)
+}
+</string>
+    </property>
+    <property name="text">
+     <string>         全球台风总览与查询</string>
+    </property>
+   </widget>
+   <widget class="QWebEngineView" name="webEngineView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>280</y>
+      <width>1561</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="url">
+     <url>
+      <string>about:blank</string>
+     </url>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>280</y>
+      <width>1561</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1561</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

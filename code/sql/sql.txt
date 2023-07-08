@@ -1,0 +1,59 @@
+create schema tropicalcyclone
+
+-- auto-generated definition
+create table typhoon
+(
+    TID       char(5)  not null,
+    YEAR      char(4)  not null,
+    MONTH     char(2)  not null,
+    DAY       char(2)  not null,
+    HOUR      char(2)  not null,
+    Intensify char(2)  not null,
+    LAT       char(8)  not null,
+    LON       char(8)  not null,
+    WND       char(8)  not null,
+    PRES      char(8)  not null,
+    NAME      char(50) not null,
+    NUM       char(50) null,
+    CN_NAME   char(10) null
+);
+
+
+-- auto-generated definition
+create table ibtracs
+(
+    ShortHand_Id char(20) not null,
+    SEASON       char(4)  not null,
+    BASIN        char(10) not null,
+    NAME         char(50) not null,
+    ISO_TIME     char(50) not null,
+    YEAR         char(4)  not null,
+    MONTH        char(2)  not null,
+    DAY          char(2)  not null,
+    HOUR         char(2)  not null,
+    LAT          char(50) not null,
+    LON          char(50) not null,
+    WMO_WIND     char(10) null,
+    WMO_PRES     char(10) null,
+    DIST2LAND    char(10) null
+);
+
+
+-- auto-generated definition
+create table client_info
+(
+    acount    char(18) not null,
+    password  char(12) not null,
+    telephone char(11) null,
+    email     char(20) null
+);
+
+-- auto-generated definition
+create table admin
+(
+    acount   char(18) not null
+        primary key,
+    password char(12) not null
+);
+
+
